@@ -1,0 +1,25 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "cmake",
+			"options": {
+				"cwd": "${workspaceRoot}"
+			},
+			"command": "cmake.exe",
+			"args": [
+				"--build",
+				"build",
+				"--config",
+				"Debug",
+				"--target",
+				"ted-toy-robot",
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"detail": "compiler: g++.exe"
+		}
+	]
+}
