@@ -25,7 +25,3 @@ Make sure you have g++ and cmake installed and added to path and the recommend w
 ### Build and Debug
 
 <kbd>F5</kbd>
-
-### TODO
-
-1. Try an unordered_map to parse commands
