@@ -1,11 +1,9 @@
-#include <iostream>
-
 #include "ToyRobot/ToyRobot.hpp"
 
 int main()
 {
-    std::cout << "Hello, world!\n";
-    auto robot = ToyRobot::ToyRobot{};
+    auto robot = Robot::ToyRobot{};
+    robot.ParseInput();
 
-    robot.Talk();
+    return 0;
 }
