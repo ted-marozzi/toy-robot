@@ -1,1 +1,1 @@
-add_library(Commands Command.hpp Place.cpp Place.hpp)
+add_library(Commands CommandFactory.cpp Place.cpp Move.cpp Report.cpp Right.cpp Left.cpp)
