@@ -25,3 +25,13 @@ Make sure you have g++ and cmake installed and added to path and the recommend w
 ### Build and Debug
 
 <kbd>F5</kbd>
+
+## TODO
+
+* Gui Mode - Flag to print out a graph of the grid on report
+
+* Verbose Mode - Flag to turn on help messages
+
+* Unit and Integration Tests
+
+* Look at Marking scheme
