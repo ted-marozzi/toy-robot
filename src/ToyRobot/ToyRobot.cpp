@@ -16,10 +16,10 @@ namespace Robot
 
     void ToyRobot::Help() const
     {
-        m_command_factory->ListCommands();
+        m_commandFactory->ListCommands();
     }
 
-    void ToyRobot::ParseInput()
+    void ToyRobot::TurnOn()
     {
         Introduction();
         Help();
@@ -28,7 +28,7 @@ namespace Robot
         for (std::string line; std::getline(std::cin, line);)
         {
             // Let the robot interpret the commands
-            auto command = m_parser->ParseCommandLine(line, m_command_factory);
+            auto command = m_parser->ParseCommandLine(line, m_commandFactory);
 
             // Unrecognised command
             if (!command)

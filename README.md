@@ -14,6 +14,11 @@ See the [ToyRobot.pdf](ToyRobot.pdf) for more details.
 
 See [gameprogrammingpatterns](https://gameprogrammingpatterns.com/command.html) for info on the command pattern used in this repo.
 
+## Environment
+
+This has only been tested for windows.
+The TABLE command uses unicode chars and may not be supported in your terminal.
+
 ## VSCode Set Up
 
 Make sure you have g++ and cmake installed and added to path and the recommend workspace extensions installed.

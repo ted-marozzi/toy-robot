@@ -24,7 +24,7 @@ namespace Robot
         // Not case sensitive so convert to upper case
         for (auto &c : inputToUpperCase)
         {
-            c = ::toupper(c);
+            c = toupper(c);
         }
 
         // Split command and args
@@ -51,20 +51,16 @@ namespace Robot
 
             try
             {
-                x = ParseInt("X", arguments[0], 0, ICommand::GRID_WIDTH);
-                y = ParseInt("Y", arguments[1], 0, ICommand::GRID_HEIGHT);
+                x = ParseInt("X", arguments[0]);
+                y = ParseInt("Y", arguments[1]);
             }
             catch (std::invalid_argument e)
             {
                 std::cout << e.what();
                 return nullptr;
             }
+
             std::string facing = arguments[2];
-            if (std::find(ICommand::DIRECTIONS.begin(), ICommand::DIRECTIONS.end(), facing) == ICommand::DIRECTIONS.end())
-            {
-                std::cout << "Facing must be a direction.\n\n";
-                return nullptr;
-            }
             return commandFactory->CreatePlaceCommand(x, y, facing);
         }
         else if (command_name_input == "RIGHT")
@@ -83,6 +79,10 @@ namespace Robot
         {
             return commandFactory->CreateReportCommand();
         }
+        else if (command_name_input == "TABLE")
+        {
+            return commandFactory->CreateTableCommand();
+        }
 
         // Invalid command
         std::cout << "Command not found\n\n";
@@ -99,7 +99,7 @@ namespace Robot
         return true;
     }
 
-    int Parser::ParseInt(const std::string &parameterName, const std::string &intString, int minValue, int maxValue) const
+    int Parser::ParseInt(const std::string &parameterName, const std::string &intString) const
     {
         int intValue = 0;
         try
@@ -109,11 +109,6 @@ namespace Robot
         catch (std::invalid_argument _)
         {
             throw std::invalid_argument("Failed to parse the " + parameterName + ".\nPlease provide an integer.");
-        }
-
-        if (intValue > maxValue || intValue < minValue)
-        {
-            throw std::invalid_argument("The " + parameterName + " argument is invalid.\n" + parameterName + " must be between " + std::to_string(minValue) + " and " + std::to_string(maxValue) + "\n\n");
         }
 
         return intValue;
