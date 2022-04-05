@@ -10,20 +10,20 @@ namespace Robot
     class ICommand;
     class IParser;
     class CommandFactory;
+
     class ToyRobot
     {
     public:
-        ToyRobot(std::unique_ptr<IParser> parser, std::unique_ptr<CommandFactory> command_factory)
-            : m_parser{std::move(parser)},
-              m_commandFactory{std::move(command_factory)}{};
-        ~ToyRobot() {}
+        ToyRobot(std::shared_ptr<IParser> parser, std::shared_ptr<CommandFactory> command_factory)
+            : m_parser{parser},
+              m_commandFactory{command_factory}{};
         void Introduction() const;
         void Help() const;
         void TurnOn();
         int m_x = -1, m_y = -1;
         std::string m_facing;
     private:
-        std::unique_ptr<IParser> m_parser;
-        std::unique_ptr<CommandFactory> m_commandFactory;
+        std::shared_ptr<IParser> m_parser;
+        std::shared_ptr<CommandFactory> m_commandFactory;
     };
 }

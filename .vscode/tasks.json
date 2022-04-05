@@ -6,7 +6,7 @@
 			"options": {
 				"cwd": "${workspaceRoot}"
 			},
-			"command": "cmake.exe",
+			"command": "cmake",
 			"args": [
 				"--build",
 				"build",
@@ -19,7 +19,7 @@
 				"kind": "build",
 				"isDefault": true
 			},
-			"detail": "compiler: g++.exe"
+			"detail": "compiler: g++"
 		}
 	]
 }

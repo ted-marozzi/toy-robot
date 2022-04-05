@@ -9,6 +9,6 @@ namespace Robot {
 
     class IParser {
     public:
-        virtual std::unique_ptr<ICommand> ParseCommandLine(const std::string& input, std::unique_ptr<CommandFactory> &commandFactory) const = 0;
+        virtual std::unique_ptr<ICommand> ParseCommandLine(const std::string& input, std::shared_ptr<CommandFactory> &commandFactory) const = 0;
     };
 }

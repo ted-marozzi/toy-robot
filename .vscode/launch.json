@@ -9,19 +9,14 @@
             "type": "cppdbg",
             "request": "launch",
             "preLaunchTask": "cmake",
-            "program": "${workspaceFolder}/build/ted-toy-robot.exe",
+            "program": "${workspaceFolder}/build/ted-toy-robot",
             "args": [],
             "stopAtEntry": false,
-            "cwd": "${fileDirname}",
+            "cwd": "${workspaceFolder}",
             "environment": [],
             "externalConsole": false,
             "MIMode": "gdb",
-            "windows": {
-                "miDebuggerPath": "gdb.exe",
-            },
-            "linux": {
-                "miDebuggerPath": "/usr/bin/gdb"
-            },
+            "miDebuggerPath": "/usr/bin/gdb",
             "setupCommands": [
                 {
                     "description": "Enable pretty-printing for gdb",

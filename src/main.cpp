@@ -7,9 +7,10 @@ int main()
 {
 
     auto robot = Robot::ToyRobot{
-        std::make_unique<Robot::Parser>(),
-        std::make_unique<Robot::CommandFactory>(
-            std::make_unique<Robot::RectangularTable>(3,6))};
+        std::make_shared<Robot::Parser>(),
+        std::make_shared<Robot::CommandFactory>(
+            std::make_shared<Robot::CircularTable>(6))
+    };
 
     robot.TurnOn();
 

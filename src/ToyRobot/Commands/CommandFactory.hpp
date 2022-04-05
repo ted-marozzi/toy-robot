@@ -9,7 +9,7 @@ namespace Robot
     class CommandFactory
     {
     public:
-        CommandFactory(std::unique_ptr<ITable> table) : m_table{std::move(table)} {};
+        CommandFactory(std::shared_ptr<ITable> table) : m_table{table} {};
         std::unique_ptr<ICommand> CreateMoveCommand() const;
         std::unique_ptr<ICommand> CreateTableCommand() const;
         std::unique_ptr<ICommand> CreateReportCommand() const;

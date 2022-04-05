@@ -18,7 +18,7 @@ namespace Robot
         return vec;
     }
 
-    std::unique_ptr<ICommand> Parser::ParseCommandLine(const std::string& input, std::unique_ptr<CommandFactory> &commandFactory) const
+    std::unique_ptr<ICommand> Parser::ParseCommandLine(const std::string& input, std::shared_ptr<CommandFactory> &commandFactory) const
     {
         std::string inputToUpperCase{ input };
         // Not case sensitive so convert to upper case

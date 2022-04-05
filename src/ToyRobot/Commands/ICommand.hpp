@@ -14,6 +14,5 @@ namespace Robot
     {
     public:
         virtual void Execute(ToyRobot &toyRobot) const = 0;
-        static inline const std::vector<std::string> DIRECTIONS{"NORTH", "EAST", "SOUTH", "WEST"};
     };
 }

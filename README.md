@@ -33,10 +33,20 @@ Make sure you have g++ and cmake installed and added to path and the recommend w
 
 ## TODO
 
+* Unit and Integration Tests
+
+* CI
+
+* Look at code coverage tools
+
+* Abstract out input and output
+
+* Try visual studio modules
+
 * Gui Mode - Flag to print out a graph of the grid on report
 
 * Verbose Mode - Flag to turn on help messages
 
-* Unit and Integration Tests
+* Dev container
 
 * Look at Marking scheme

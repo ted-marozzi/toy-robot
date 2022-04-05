@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 #include "CommandFactory.hpp"
 #include "Move.hpp"
 #include "Table.hpp"
@@ -9,6 +10,8 @@
 
 namespace Robot
 {
+    static const std::vector<std::string> DIRECTIONS{"NORTH", "EAST", "SOUTH", "WEST"};
+
     void CommandFactory::ListCommands() const
     {
         std::cout << "The following commands are avaliable:\n"
@@ -47,7 +50,7 @@ namespace Robot
 
     std::unique_ptr<ICommand> CommandFactory::CreatePlaceCommand(int x, int y, std::string facing) const
     {
-        if (std::find(ICommand::DIRECTIONS.begin(), ICommand::DIRECTIONS.end(), facing) == ICommand::DIRECTIONS.end())
+        if (std::find(DIRECTIONS.begin(), DIRECTIONS.end(), facing) == DIRECTIONS.end())
         {
             std::cout << "Facing must be a direction.\n\n";
             return nullptr;
