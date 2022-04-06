@@ -5,5 +5,11 @@ ARG VARIANT=debian-11
 FROM mcr.microsoft.com/vscode/devcontainers/cpp:0-${VARIANT}
 
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-    && apt-get -y install --no-install-recommends cmake gcc-11
+    && apt-get -y install --no-install-recommends cmake
+
+WORKDIR /app
+
+#RUN cmake --build build  --config Debug --target toy-robot
+#RUN cmake --build build
+#CMD ["./build/toy-robot-test"]
 

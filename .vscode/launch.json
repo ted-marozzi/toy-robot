@@ -9,7 +9,7 @@
             "type": "cppdbg",
             "request": "launch",
             "preLaunchTask": "cmake",
-            "program": "${workspaceFolder}/build/ted-toy-robot",
+            "program": "${workspaceFolder}/build/toy-robot",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",

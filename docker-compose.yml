@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  ci:
+    build:
+      context: .
+      dockerfile: Dockerfile.ci
+        # The next four lines are for ptrace-based debuggers like C++, Go, and Rust.
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - seccomp:unconfined
+    # Map the root dir to /app
+    volumes:
+      - .:/app
+    command: /bin/sh -c "while sleep 1000; do :; done"
+
+  development:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    environment:
+      # Uncomment the next line to use Docker from inside the container. See https://aka.ms/vscode-remote/samples/docker-from-docker-compose for details.
+      - /var/run/docker.sock:/var/run/docker.sock
+
+    # The next four lines are for ptrace-based debuggers like C++, Go, and Rust.
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - seccomp:unconfined
+
+    # Map the root dir to /app
+    volumes:
+      - .:/app
+    # Keep the container alive
+    command: /bin/sh -c "while sleep 1000; do :; done"
