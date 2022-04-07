@@ -10,7 +10,7 @@ services:
       - SYS_PTRACE
     security_opt:
       - seccomp:unconfined
-    command: ./post-create-test.sh
+    command: ./post-create-ci.sh
 
   development:
     build:
