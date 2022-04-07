@@ -5,15 +5,12 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.ci
-        # The next four lines are for ptrace-based debuggers like C++, Go, and Rust.
+    # The next four lines are for ptrace-based debuggers like C++, Go, and Rust.
     cap_add:
       - SYS_PTRACE
     security_opt:
       - seccomp:unconfined
-    # Map the root dir to /app
-    volumes:
-      - .:/app
-    command: /bin/sh -c "while sleep 1000; do :; done"
+    command: ./post-create-test.sh
 
   development:
     build:

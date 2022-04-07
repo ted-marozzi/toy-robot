@@ -88,9 +88,13 @@
     "variant": "cpp"
   },
   "cSpell.words": [
+    "azuretools",
     "cmake",
+    "cpptools",
     "gameprogrammingpatterns",
     "Iress",
-    "stoi"
+    "stoi",
+    "STRNE",
+    "tomoki"
   ]
 }

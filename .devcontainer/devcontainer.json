@@ -13,13 +13,14 @@
     // Add the IDs of extensions you want installed when the container is created.
     "extensions": [
         "tomoki1207.pdf",
-        "ms-vscode.cpptools-extension-pack"
+        "ms-vscode.cpptools-extension-pack",
+        "streetsidesoftware.code-spell-checker",
+        "ms-azuretools.vscode-docker"
     ],
-
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
     // "forwardPorts": [],
     // Use 'postCreateCommand' to run commands after the container is created.
-    "postCreateCommand": "mkdir lib && cd lib/ && git clone https://github.com/google/googletest.git"
+    "postCreateCommand":"./post-create-dev.sh",
     // Comment out this line to run as root instead.
-    // "remoteUser": "vscode"
+    //"remoteUser": "vscode"
 }

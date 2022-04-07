@@ -3,7 +3,7 @@ project(ted-toy-robot VERSION 0.1.0)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
-set(CXX_STANDARD 23)
+set(CXX_STANDARD 17)
 
 enable_testing()
 
@@ -16,4 +16,4 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 # Local directories list here
 add_subdirectory(src)
 add_subdirectory(lib/googletest)
-add_subdirectory(test)
+

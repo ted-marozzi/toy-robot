@@ -24,6 +24,27 @@
                     "ignoreFailures": true
                 }
             ]
+        },
+        {
+            "name": "Test",
+            "type": "cppdbg",
+            "request": "launch",
+            "preLaunchTask": "cmake test",
+            "program": "${workspaceFolder}/build/toy-robot-test",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "/usr/bin/gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
         }
     ]
 }

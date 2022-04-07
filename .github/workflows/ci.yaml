@@ -1,0 +1,9 @@
+name: GitHub Actions Demo
+on: [push, pull_request]
+jobs:
+  Run-CI:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - run: docker-compose up --build ci

@@ -1,7 +1,7 @@
 #include "ToyRobot/ToyRobot.hpp"
-#include "Parser/Parser.hpp"
-#include "Table/CircularTable.hpp"
-#include "Table/RectangularTable.hpp"
+#include "ToyRobot/Parser/Parser.hpp"
+#include "ToyRobot/Table/CircularTable.hpp"
+#include "ToyRobot/Table/RectangularTable.hpp"
 
 int main()
 {

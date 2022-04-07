@@ -20,6 +20,25 @@
 				"isDefault": true
 			},
 			"detail": "compiler: g++"
+		},
+		{
+			"label": "cmake test",
+			"options": {
+				"cwd": "${workspaceRoot}"
+			},
+			"command": "cmake",
+			"args": [
+				"--build",
+				"build",
+				"--config",
+				"Debug",
+				"--target",
+				"toy-robot-test",
+			],
+			"group": {
+				"kind": "build",
+			},
+			"detail": "compiler: g++"
 		}
 	]
 }
