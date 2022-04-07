@@ -1,5 +1,6 @@
 #!/bin/bash
 
+ls -la
 source ./post-create-dev.sh
 
 printf "\n\nRunning Tests\n\n"
