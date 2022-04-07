@@ -1,5 +1,5 @@
 #!/bin/bash
-
+set -e
 cd src && ls -la && cd ../
 source ./post-create-dev.sh
 
