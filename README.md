@@ -33,9 +33,9 @@ Make sure you have g++ and cmake installed and added to path and the recommend w
 
 ## TODO
 
-* Unit and Integration Tests
+* Unit and Integration Tests - Mocking and Test Generation
 
-* CI
+* Rethink Circular co-ordinates
 
 * Look at code coverage tools
 
@@ -46,7 +46,5 @@ Make sure you have g++ and cmake installed and added to path and the recommend w
 * Gui Mode - Flag to print out a graph of the grid on report
 
 * Verbose Mode - Flag to turn on help messages
-
-* Dev container
 
 * Look at Marking scheme
