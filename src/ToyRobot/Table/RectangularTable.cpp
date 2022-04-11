@@ -3,9 +3,11 @@
 
 namespace Robot
 {
-    bool RectangularTable::IsValidPosition(float x, float y) const
+    bool RectangularTable::IsValidPosition(int x, int y)  const
     {
-        return x >= 0 && x < m_width && y >= 0 && y < m_height;
+        float xPos = x + 0.5;
+        float yPos = y + 0.5;
+        return xPos > 0 && xPos < m_width && yPos > 0 && yPos < m_height;
     }
 
     void RectangularTable::PrintTable(int x, int y, const std::string &facing)

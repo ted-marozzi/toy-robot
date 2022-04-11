@@ -10,7 +10,7 @@ int main()
     auto robot = Robot::ToyRobot{
         std::make_shared<Robot::Parser>(),
         std::make_shared<Robot::CommandFactory>(
-            std::make_shared<Robot::SquircleTable>(4,8))};
+            std::make_shared<Robot::RectangularTable>(3, 5))};
 
     robot.TurnOn();
 
