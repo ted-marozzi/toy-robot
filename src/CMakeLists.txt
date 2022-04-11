@@ -3,6 +3,8 @@ add_subdirectory(ToyRobot)
 add_subdirectory(ToyRobot/Commands)
 add_subdirectory(ToyRobot/Parser)
 add_subdirectory(ToyRobot/Table)
+add_subdirectory(ToyRobotTest)
+add_subdirectory(ToyRobotTest/TableTest)
 
 set(EXE toy-robot)
 
@@ -23,8 +25,8 @@ set(TEST_EXE toy-robot-test)
 
 add_executable(${TEST_EXE} MainTest.cpp)
 
-target_include_directories(${TEST_EXE} PUBLIC ToyRobot Commands Parser Table)
+target_include_directories(${TEST_EXE} PUBLIC ToyRobot Commands Parser Table ToyRobotTest TableTest)
 
-target_link_directories(${TEST_EXE} PUBLIC ToyRobot Commands Parser Table)
+target_link_directories(${TEST_EXE} PUBLIC ToyRobot Commands Parser Table ToyRobotTest TableTest)
 
-target_link_libraries(${TEST_EXE} PUBLIC gtest_main ToyRobot Commands Parser Table)
+target_link_libraries(${TEST_EXE} PUBLIC gtest_main ToyRobot Commands Parser Table ToyRobotTest TableTest)

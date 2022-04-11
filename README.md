@@ -33,9 +33,9 @@ Make sure you have g++ and cmake installed and added to path and the recommend w
 
 ## TODO
 
-* Unit and Integration Tests - Mocking and Test Generation
+* Review move semantics
 
-* Rethink Circular co-ordinates
+* Unit and Integration Tests - Mocking and Test Generation
 
 * Look at code coverage tools
 
