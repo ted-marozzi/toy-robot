@@ -61,3 +61,6 @@ _deps
 *.app
 
 lib/
+
+code_coverage_report
+code_coverage.info

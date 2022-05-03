@@ -15,12 +15,14 @@
         "tomoki1207.pdf",
         "ms-vscode.cpptools-extension-pack",
         "streetsidesoftware.code-spell-checker",
-        "ms-azuretools.vscode-docker"
+        "ms-azuretools.vscode-docker",
+        // cSpell:disable-next
+        "ritwickdey.LiveServer"
     ],
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
     // "forwardPorts": [],
     // Use 'postCreateCommand' to run commands after the container is created.
-    "postCreateCommand":"./post-create-dev.sh",
+    "postCreateCommand": "./post-create-dev.sh",
     // Comment out this line to run as root instead.
     //"remoteUser": "vscode"
 }

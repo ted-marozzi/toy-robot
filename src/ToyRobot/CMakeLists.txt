@@ -1,1 +1,1 @@
-add_library(ToyRobot ToyRobot.cpp ToyRobot.hpp)
+add_library(ToyRobot ToyRobot.cpp)

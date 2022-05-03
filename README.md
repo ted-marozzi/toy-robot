@@ -31,6 +31,13 @@ Make sure you have g++ and cmake installed and added to path and the recommend w
 
 <kbd>F5</kbd>
 
+### Code Coverage
+```
+lcov --directory ./build/ --capture --output-file ./code_coverage.info -rc lcov_branch_coverage=1
+genhtml code_coverage.info --branch-coverage --output-directory ./code_coverage_report/
+```
+Start a live server with the live server extension and view the code_coverage_report folder
+
 ## TODO
 
 * Review move semantics

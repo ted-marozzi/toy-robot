@@ -3,7 +3,6 @@
 #include <iterator>
 
 #include "ToyRobot.hpp"
-#include "ToyRobot.hpp"
 #include "Commands/CommandFactory.hpp"
 
 namespace Robot
