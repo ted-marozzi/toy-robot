@@ -16,8 +16,7 @@ See [gameprogrammingpatterns](https://gameprogrammingpatterns.com/command.html) 
 
 ## Environment
 
-This has only been tested for windows.
-The TABLE command uses unicode chars and may not be supported in your terminal.
+This has only been tested inside the vscode docker container.
 
 ## VSCode Set Up
 
@@ -41,9 +40,9 @@ Start a live server with the live server extension and view the code_coverage_re
 
 ## TODO
 
-* Integration Tests - Mocking and Test Generation
-
 * Abstract out input and output
+
+* Integration Tests - Mocking and Test Generation
 
 * Gui Mode - Flag to print out a graph of the grid on report
 
