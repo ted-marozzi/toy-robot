@@ -17,10 +17,7 @@ See [gameprogrammingpatterns](https://gameprogrammingpatterns.com/command.html) 
 ## Environment
 
 This has only been tested inside the vscode docker container.
-
-## VSCode Set Up
-
-Make sure you have g++ and cmake installed and added to path and the recommend workspace extensions installed.
+The following instructions assumes the you opened the folder in the vscode dev container.
 
 ### Build
 
