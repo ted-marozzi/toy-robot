@@ -31,6 +31,7 @@
             "request": "launch",
             "preLaunchTask": "cmake test",
             "program": "${workspaceFolder}/build/toy-robot-test",
+            "postDebugTask": "code coverage",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",

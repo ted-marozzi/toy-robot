@@ -39,6 +39,17 @@
 				"kind": "build",
 			},
 			"detail": "compiler: g++"
+		},
+		{
+			"label": "code coverage",
+			"options": {
+				"cwd": "${workspaceRoot}"
+			},
+			"command": "code-coverage.sh",
+			"group": {
+				"kind": "build",
+			},
+			"detail": "compiler: g++"
 		}
 	]
 }

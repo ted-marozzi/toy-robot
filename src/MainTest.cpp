@@ -12,6 +12,24 @@
 #include "ToyRobot/Table/SquircleTable.hpp"
 #include <typeinfo>
 
+/*
+ *  Toy Robot Tests
+ */
+
+// Some includes errors require this for parser test??
+// Need to inject input and and output for unit testing
+TEST(ToyRobot, Introduction)
+{
+    auto robot = Robot::ToyRobot{
+        std::make_shared<Robot::Parser>(),
+        std::make_shared<Robot::CommandFactory>(
+            std::make_shared<Robot::RectangularTable>(3, 5))};
+    robot.Help();
+}
+
+/*
+ *  Table Tests
+ */
 TEST(RectangularTable, IsValidPosition)
 {
     auto tableOne = Robot::RectangularTable{0, 0};
@@ -175,15 +193,6 @@ TEST(SquircleTable, IsValidPosition)
 /*
  *  Parser Tests
  */
-// Some includes errors require this for parser test??
-TEST(Parser, ParserTestsFailWithoutThis)
-{
-    auto robot = Robot::ToyRobot{
-        std::make_shared<Robot::Parser>(),
-        std::make_shared<Robot::CommandFactory>(
-            std::make_shared<Robot::RectangularTable>(3, 5))};
-    robot.Help();
-}
 
 TEST(Parser, ParseCommandLine)
 {
@@ -238,4 +247,179 @@ TEST(Parser, ParseCommandLine)
 
     auto table = parser->ParseCommandLine("TABLE", commandFactory);
     EXPECT_EQ(typeid(table).name(), typeid(commandFactory->CreateTableCommand()).name());
+}
+
+/*
+ *  Command Tests
+ */
+TEST(Left, Execute)
+{
+    auto robot = Robot::ToyRobot{
+        std::make_shared<Robot::Parser>(),
+        std::make_shared<Robot::CommandFactory>(
+            std::make_shared<Robot::RectangularTable>(3, 5))};
+
+    robot.m_x = 1;
+    robot.m_y = 1;
+
+    auto commandFactory = std::make_shared<Robot::CommandFactory>(
+        std::make_shared<Robot::RectangularTable>(3, 5));
+
+    auto left = commandFactory->CreateLeftCommand();
+
+    robot.m_facing = "";
+    left->Execute(robot);
+    EXPECT_EQ(robot.m_facing, "");
+
+    robot.m_facing = "NORTH";
+    left->Execute(robot);
+    EXPECT_EQ(robot.m_facing, "WEST");
+
+    robot.m_facing = "WEST";
+    left->Execute(robot);
+    EXPECT_EQ(robot.m_facing, "SOUTH");
+
+    robot.m_facing = "SOUTH";
+    left->Execute(robot);
+    EXPECT_EQ(robot.m_facing, "EAST");
+
+    robot.m_facing = "EAST";
+    left->Execute(robot);
+    EXPECT_EQ(robot.m_facing, "NORTH");
+
+    robot.m_facing = "invalid";
+    left->Execute(robot);
+    EXPECT_EQ(robot.m_facing, "invalid");
+}
+
+void resetRobot(Robot::ToyRobot &robot)
+{
+    robot.m_x = 1;
+    robot.m_y = 1;
+    robot.m_facing = "NORTH";
+}
+
+TEST(Move, Execute)
+{
+    auto robot = Robot::ToyRobot{
+        std::make_shared<Robot::Parser>(),
+        std::make_shared<Robot::CommandFactory>(
+            std::make_shared<Robot::RectangularTable>(3, 5))};
+
+    auto commandFactory = std::make_shared<Robot::CommandFactory>(
+        std::make_shared<Robot::RectangularTable>(3, 5));
+
+    auto move = commandFactory->CreateMoveCommand();
+
+    resetRobot(robot);
+    move->Execute(robot);
+    EXPECT_EQ(robot.m_x, 1);
+
+    resetRobot(robot);
+    robot.m_facing = "NORTH";
+    move->Execute(robot);
+    EXPECT_EQ(robot.m_y, 2);
+
+    resetRobot(robot);
+    robot.m_facing = "WEST";
+    move->Execute(robot);
+    EXPECT_EQ(robot.m_x, 0);
+
+    resetRobot(robot);
+    robot.m_facing = "SOUTH";
+    move->Execute(robot);
+    EXPECT_EQ(robot.m_y, 0);
+
+    resetRobot(robot);
+    robot.m_facing = "EAST";
+    move->Execute(robot);
+    EXPECT_EQ(robot.m_x, 2);
+
+    resetRobot(robot);
+    robot.m_x = 2;
+    robot.m_facing = "EAST";
+    move->Execute(robot);
+    EXPECT_EQ(robot.m_x, 2);
+
+    resetRobot(robot);
+    robot.m_facing = "invalid";
+    move->Execute(robot);
+    EXPECT_EQ(robot.m_x, 1);
+}
+
+// TODO test when we have input and output abstraction
+TEST(Report, Execute)
+{
+    auto robot = Robot::ToyRobot{
+        std::make_shared<Robot::Parser>(),
+        std::make_shared<Robot::CommandFactory>(
+            std::make_shared<Robot::RectangularTable>(3, 5))};
+
+    auto commandFactory = std::make_shared<Robot::CommandFactory>(
+        std::make_shared<Robot::RectangularTable>(3, 5));
+
+    auto report = commandFactory->CreateReportCommand();
+    report->Execute(robot);
+
+    robot.m_facing = "NORTH";
+    report->Execute(robot);
+}
+
+TEST(Right, Execute)
+{
+    auto robot = Robot::ToyRobot{
+        std::make_shared<Robot::Parser>(),
+        std::make_shared<Robot::CommandFactory>(
+            std::make_shared<Robot::RectangularTable>(3, 5))};
+
+    robot.m_x = 1;
+    robot.m_y = 1;
+
+    auto commandFactory = std::make_shared<Robot::CommandFactory>(
+        std::make_shared<Robot::RectangularTable>(3, 5));
+
+    auto right = commandFactory->CreateRightCommand();
+
+    robot.m_facing = "";
+    right->Execute(robot);
+    EXPECT_EQ(robot.m_facing, "");
+
+    robot.m_facing = "NORTH";
+    right->Execute(robot);
+    EXPECT_EQ(robot.m_facing, "EAST");
+
+    robot.m_facing = "WEST";
+    right->Execute(robot);
+    EXPECT_EQ(robot.m_facing, "NORTH");
+
+    robot.m_facing = "SOUTH";
+    right->Execute(robot);
+    EXPECT_EQ(robot.m_facing, "WEST");
+
+    robot.m_facing = "EAST";
+    right->Execute(robot);
+    EXPECT_EQ(robot.m_facing, "SOUTH");
+
+    robot.m_facing = "invalid";
+    right->Execute(robot);
+    EXPECT_EQ(robot.m_facing, "invalid");
+}
+
+// TODO test once abstracted output
+TEST(Table, Execute)
+{
+    auto robot = Robot::ToyRobot{
+        std::make_shared<Robot::Parser>(),
+        std::make_shared<Robot::CommandFactory>(
+            std::make_shared<Robot::RectangularTable>(3, 5))};
+
+    robot.m_x = 1;
+    robot.m_y = 1;
+
+    auto commandFactory = std::make_shared<Robot::CommandFactory>(
+        std::make_shared<Robot::RectangularTable>(3, 5));
+
+    auto table = commandFactory->CreateTableCommand();
+
+    table->Execute(robot);
 }

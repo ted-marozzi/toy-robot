@@ -32,23 +32,18 @@ Make sure you have g++ and cmake installed and added to path and the recommend w
 <kbd>F5</kbd>
 
 ### Code Coverage
+Code coverage html is created after every test run.
+This assumes running in dev container as it uses /app/lib
 ```
-lcov --directory ./build/ --capture --output-file ./code_coverage.info -rc lcov_branch_coverage=1
-genhtml code_coverage.info --branch-coverage --output-directory ./code_coverage_report/
+./code-coverage.sh
 ```
-Start a live server with the live server extension and view the code_coverage_report folder
+Start a live server with the live server extension and view the code_coverage_report folder.
 
 ## TODO
 
-* Review move semantics
-
-* Unit and Integration Tests - Mocking and Test Generation
-
-* Look at code coverage tools
+* Integration Tests - Mocking and Test Generation
 
 * Abstract out input and output
-
-* Try visual studio modules
 
 * Gui Mode - Flag to print out a graph of the grid on report
 
